@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class User {
@@ -13,7 +15,7 @@ public class User {
 
     String name;
     String cardNumber;
-    List<Item> bucket;
+    List<Item> bucket = new ArrayList<>();
 
     public boolean addItemToBucket(Item item){
         bucket.add(item);
