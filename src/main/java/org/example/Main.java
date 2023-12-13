@@ -20,6 +20,7 @@ public class Main {
         Item item6 = new Item("Slippers", 470);
         Item item7 = new Item("Comb", 180);
         Item item8 = new Item("Mug", 339);
+        Item item9 = new Item("Mirror", 700);
 
 
         katya.addItemToBucket(item1);

@@ -10,6 +10,7 @@ public class Storage {
         this.amountOfItems = amountOfItems;
     }
     Integer amountOfItems;
+    Integer amountOfMoney;
     List<Item> allItem= new ArrayList<>();
 
 }
