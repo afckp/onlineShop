@@ -23,5 +23,11 @@ public class User {
         return true;
     }
 
+    public boolean deleteItemFromBucket(Item item){
+        bucket.remove(item);
+        System.out.println(item.name+" was deleted from your bucket");
+        return true;
+    }
+
 
 }
