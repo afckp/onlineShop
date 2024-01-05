@@ -7,7 +7,7 @@ import java.util.*;
 public class Storage {
     Integer amountOfItems;
     Integer amountOfMoney;
-    List<Item> allItems = new ArrayList<>();
+    public List<Item> allItems = new ArrayList<>();
     Map<Item, Integer> storageMap = new HashMap<>();
 
     public Storage() {
@@ -47,6 +47,17 @@ public class Storage {
             Item temp = allItems.get(i);
             System.out.println(temp.name + ", " + temp.price + ", " + storageMap.get(temp));
         }
+    }
+
+    public Item getItemByName(String name) {
+        for (int i = 0; i < allItems.size(); i++) {
+            Item temp = allItems.get(i);
+            if (temp.name.equals(name)) {
+                return temp;
+            }
+        }
+
+        throw new NoSuchElementException("Item with name " + name + " not found");
     }
 
 }

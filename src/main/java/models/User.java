@@ -17,17 +17,27 @@ public class User {
     String cardNumber;
     List<Item> bucket = new ArrayList<>();
 
-    public boolean addItemToBucket(Item item){
-        bucket.add(item);
-        System.out.println(item.name+" was added to your bucket");
+    public boolean addItemToBucket(Item item, Integer amount, Storage storage) {
+        if (amount <= storage.storageMap.get(item)) {
+            bucket.add(item);
+            Integer temp = storage.storageMap.get(item) - amount;
+            storage.storageMap.put(item,temp);
+            System.out.println(amount + " " + item.name + " was added to your bucket");
+            return true;
+        } else {
+            throw new RuntimeException("Not enough items in stock, user want " + amount +
+                    " but there are only " + storage.storageMap.get(item));
+        }
+
+    }
+
+    public boolean deleteItemFromBucket(Item item) {
+        bucket.remove(item);
+        System.out.println(item.name + " was deleted from your bucket");
         return true;
     }
 
-    public boolean deleteItemFromBucket(Item item){
-        bucket.remove(item);
-        System.out.println(item.name+" was deleted from your bucket");
-        return true;
-    }
+    //public boolean purchaseItems()
 
 
 }

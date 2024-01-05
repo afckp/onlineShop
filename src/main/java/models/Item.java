@@ -6,6 +6,11 @@ public class Item {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return this.name + ", " + this.price;
+    }
+
     String name;
     Integer price;
 
