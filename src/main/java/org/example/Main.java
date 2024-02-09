@@ -52,8 +52,8 @@ public class Main {
         User liza = new User("Liza");
         Item candle = storage.getItemByName("Candle");
         liza.addItemToBucket(candle, 1, storage);
-        System.out.println(liza.calculateSumForBucket());
 
+        Assertions.assertEquals(170, liza.calculateSumForBucket());
     }
 
 
