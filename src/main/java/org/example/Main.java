@@ -1,6 +1,7 @@
 package org.example;
 
 import models.Item;
+import models.Order;
 import models.Storage;
 import models.User;
 import org.junit.jupiter.api.Assertions;
@@ -55,6 +56,38 @@ public class Main {
 
         Assertions.assertEquals(170, liza.calculateSumForBucket());
     }
+
+    @Test // тестирует базовый случай одного заказа
+    void testmakeOrder() {
+        User katya = new User("Katya");
+        katya.addItemToBucket(storage.getItemByName("Towel"),2, storage);
+        katya.addItemToBucket(storage.getItemByName("Mug"), 5, storage);
+        Order orderKatya = katya.makeOrder();
+        System.out.println(orderKatya.toString());
+
+    }
+
+
+    @Test // тестирует создание двух заказов
+    void testMakeTwoOrders() {
+        User katya = new User("Katya");
+        katya.addItemToBucket(storage.getItemByName("Towel"),2, storage);
+        katya.addItemToBucket(storage.getItemByName("Mug"), 5, storage);
+        User liza = new User("Liza");
+        liza.addItemToBucket(storage.getItemByName("Candle"),3, storage);
+
+        Order orderKatya = katya.makeOrder();
+        System.out.println(orderKatya.toString());
+
+        Order orderLiza = liza.makeOrder();
+        System.out.println(orderLiza.toString());
+
+        Assertions.assertEquals(1, orderKatya.number);
+        Assertions.assertEquals(2, orderLiza.number);
+
+    }
+
+
 
 
 }

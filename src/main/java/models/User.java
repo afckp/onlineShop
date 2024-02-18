@@ -6,6 +6,7 @@ import java.util.List;
 
 public class User {
     public User(String name) {
+
         this.name = name;
     }
 
@@ -60,7 +61,11 @@ public class User {
         return (int) result;
     }
 
-    //public boolean purchaseItems()
+    public Order makeOrder() {
+        Order order = new Order(bucket, calculateSumForBucket());
+        return order;
+    }
+
 
 
 }
